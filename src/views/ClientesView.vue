@@ -14,12 +14,14 @@ defineProps({
 
 <template>
     <div>
+        
+        <div class="flex justify-end">
+            <RouterLink to="agregar-cliente">
+                Agregar Cliente
+            </RouterLink>
+        </div>
+        
         <Header>{{ titulo }}</Header>
-
-    <RouterLink to="agregar-cliente" class="flex justify-end">
-        Agregar Cliente
-    </RouterLink>
-
     </div>
 </template>
 

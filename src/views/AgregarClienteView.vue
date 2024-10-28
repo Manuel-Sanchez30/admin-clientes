@@ -1,6 +1,6 @@
 <script setup>
+import Header from '@/components/UI/Header.vue';
 import RouterLink from '@/components/UI/RouterLink.vue';
-import Header from '../components/UI/Header.vue';
 
 defineProps({
     titulo:{
@@ -9,17 +9,16 @@ defineProps({
     }
 })
 
-
 </script>
 
 <template>
     <div>
         <Header>{{ titulo }}</Header>
 
-    <RouterLink to="agregar-cliente" class="flex justify-end">
-        Agregar Cliente
-    </RouterLink>
-
+        <RouterLink to="inicio">
+            Volver
+        </RouterLink>
+        
     </div>
 </template>
 

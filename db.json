@@ -1,0 +1,13 @@
+{
+    "clientes":[
+        {
+            "name": "Manuel",
+            "apellido": "Sanchez"
+        },
+        {
+            "name": "karen",
+            "apellido": "Coqueco"
+        }
+        
+    ]
+}

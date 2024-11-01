@@ -1,9 +1,10 @@
 <script setup>
 
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import axios from "axios";
 import RouterLink from '@/components/UI/RouterLink.vue';
 import Header from '../components/UI/Header.vue';
+import Cliente from "@/components/Cliente.vue";
 
 defineProps({
     titulo:{
@@ -17,7 +18,12 @@ const clientes = ref([])
 
 onMounted(()=>{
     axios.get(URL)
-        .then(({data}) => clientes.value = data)
+    .then(({data}) => clientes.value = data)
+    .catch(err => console.log('Hubo un error'))
+})
+
+const existenClientes = computed(()=>{
+    return clientes.value.length > 0
 })
 
 </script>
@@ -32,6 +38,32 @@ onMounted(()=>{
         </div>
         
         <Header>{{ titulo }}</Header>
+
+        <div v-if="existenClientes" class="flow-root mx-auto  mt-10 p-5 bg-white shadow">
+            <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Nombre</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Monto</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Telefono</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <Cliente
+                                v-for="cliente in clientes"
+                                :key="cliente.id"
+                                :cliente="cliente"
+                            />
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <p v-else>No Hay Clientes</p>
+
     </div>
 </template>
 

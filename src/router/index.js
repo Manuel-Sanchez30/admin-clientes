@@ -14,11 +14,14 @@ const router = createRouter({
     {
       path: '/agregar-cliente',
       name: 'agregar-cliente',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AgregarClienteView.vue'),
-      props:{titulo:'Clientes'}
+      props:{titulo:'Registro de Clientes'}
+    },
+    {
+      path: '/editar-cliente/:id',
+      name: 'editar-cliente',
+      component: () => import('../views/EditarClienteView.vue'),
+      props:{titulo:'Editar Cliente'}
     } 
   ]
 })

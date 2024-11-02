@@ -3,7 +3,8 @@ import axios from 'axios';
 import {useRouter} from 'vue-router';
 import Header from '@/components/UI/Header.vue';
 import RouterLink from '@/components/UI/RouterLink.vue';
-import {FormKit} from '@formkit/vue'
+import {FormKit} from '@formkit/vue';
+import clienteServices from '@/services/clienteServices';
 
 defineProps({
     titulo:{
@@ -12,11 +13,12 @@ defineProps({
     }
 })
 
-const URL = 'http://localhost:4000/clientes';
+
 const router = useRouter()
 
 const handleSubmit = (data)=>{
-    axios.post(URL, data)
+    data.estado = 1
+    clienteServices.agregarCliente(data)
         .then(respuesta => {
             console.log(respuesta)
             //Redireccionar

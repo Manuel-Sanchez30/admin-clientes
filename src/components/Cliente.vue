@@ -12,6 +12,10 @@ import { computed } from 'vue';
         return `${props.cliente.nombre} ${props.cliente.apellido}`
     })
 
+    const estadoCliente = computed(()=>{
+        return props.cliente.estado
+    })
+
 </script>
 <template>
     <tr>

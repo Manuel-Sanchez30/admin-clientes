@@ -5,6 +5,7 @@ import axios from "axios";
 import RouterLink from '@/components/UI/RouterLink.vue';
 import Header from '../components/UI/Header.vue';
 import Cliente from "@/components/Cliente.vue";
+import clienteServices from "@/services/clienteServices";
 
 defineProps({
     titulo:{
@@ -13,13 +14,13 @@ defineProps({
     }
 })
 
-const URL = 'http://localhost:4000/clientes';
+
 const clientes = ref([])
 
 onMounted(()=>{
-    axios.get(URL)
-    .then(({data}) => clientes.value = data)
-    .catch(err => console.log('Hubo un error'))
+    clienteServices.obtenerClientes()
+        .then(({data}) => clientes.value = data)
+        .catch(err => console.log('Hubo un error'))
 })
 
 const existenClientes = computed(()=>{
@@ -62,7 +63,10 @@ const existenClientes = computed(()=>{
                 </div>
             </div>
         </div>
-        <p v-else>No Hay Clientes</p>
+        <p 
+            v-else
+            class="text-center text-white font-bold text-3xl"    
+        >No Hay Clientes</p>
 
     </div>
 </template>

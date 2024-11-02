@@ -1,7 +1,7 @@
 <script setup>
 
 import { onMounted, ref, computed } from "vue";
-import axios from "axios";
+
 import RouterLink from '@/components/UI/RouterLink.vue';
 import Header from '../components/UI/Header.vue';
 import Cliente from "@/components/Cliente.vue";
@@ -50,6 +50,7 @@ const existenClientes = computed(()=>{
                             <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Monto</th>
                             <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Telefono</th>
                             <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Acciones</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Estado</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">

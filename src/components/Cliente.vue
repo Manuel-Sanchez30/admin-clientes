@@ -1,6 +1,11 @@
 <script setup>
 import { computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
 
+
+    const route = useRoute();
+    
+    const {id} = route.params
 
     const props = defineProps({
         cliente:{
@@ -32,7 +37,7 @@ import { computed } from 'vue';
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
             <RouterLink 
-                to="/"
+                :to="{name:'editar-cliente', params:{id: cliente.id}}"
                 class="text-indigo-700 font-bold hover:text-indigo-500"
             >
                 Editar
@@ -41,6 +46,14 @@ import { computed } from 'vue';
                 class="text-red-700 font-bold hover:text-red-500"
             >
                 Eliminar
+            </button>
+        </td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
+            <button
+                class="p-1 rounded-md"
+                :class="[estadoCliente ? 'bg-green-200 font-semibold text-green-800' : 'bg-red-200 text-red-800']"
+            >
+                {{ estadoCliente ? 'Aprobado' : 'Negado' }}
             </button>
         </td>
     </tr>

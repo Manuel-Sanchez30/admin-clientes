@@ -13,7 +13,7 @@ import { RouterLink, useRoute } from 'vue-router';
         }
     })
 
-    defineEmits(['actualizar-estado'])
+    defineEmits(['actualizar-estado', 'eliminar-cliente'])
 
     const nombreCompleto = computed(()=>{
         return `${props.cliente.nombre} ${props.cliente.apellido}`
@@ -46,6 +46,7 @@ import { RouterLink, useRoute } from 'vue-router';
             </RouterLink>
             <button
                 class="text-red-700 font-bold hover:text-red-500"
+                @click="$emit('eliminar-cliente', cliente.id)"
             >
                 Eliminar
             </button>

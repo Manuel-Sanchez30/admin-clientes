@@ -36,6 +36,14 @@ const actualizarEstado = ({id, estado})=>{
         .catch(err => console.log(err))
 }
 
+const eliminarCliente = (id)=>{
+    clienteServices.eliminarCliente(id)
+        .then(()=>{
+            clientes.value = clientes.value.filter(cliente => cliente.id !== id)
+        })
+        .catch(err => console.log(err))
+}
+
 </script>
 
 <template>
@@ -68,6 +76,7 @@ const actualizarEstado = ({id, estado})=>{
                                 :key="cliente.id"
                                 :cliente="cliente"
                                 @actualizar-estado="actualizarEstado"
+                                @eliminar-cliente="eliminarCliente"
                             />
                         </tbody>
                     </table>

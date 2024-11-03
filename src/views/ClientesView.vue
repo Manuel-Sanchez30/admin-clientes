@@ -27,6 +27,15 @@ const existenClientes = computed(()=>{
     return clientes.value.length > 0
 })
 
+const actualizarEstado = ({id, estado})=>{
+    clienteServices.cambiarEstado(id, {estado: !estado})
+        .then(()=>{
+            const i = clientes.value.findIndex(cliente => cliente.id === id)
+            clientes.value[i].estado = !estado
+        })
+        .catch(err => console.log(err))
+}
+
 </script>
 
 <template>
@@ -40,17 +49,17 @@ const existenClientes = computed(()=>{
         
         <Header>{{ titulo }}</Header>
 
-        <div v-if="existenClientes" class="flow-root mx-auto  mt-10 p-5 bg-white shadow">
+        <div v-if="existenClientes" class="flow-root mx-auto  mt-10 p-5 bg-white shadow rounded-md">
             <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <table class="min-w-full divide-y divide-gray-300">
+                    <table class="min-w-full divide-y divide-gray-300 bg-indigo-700 rounded-md">
                         <thead>
                         <tr>
-                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Nombre</th>
-                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Monto</th>
-                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Telefono</th>
-                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Acciones</th>
-                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Estado</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Nombre</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Monto</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Telefono</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Acciones</th>
+                            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Estado</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
@@ -58,6 +67,7 @@ const existenClientes = computed(()=>{
                                 v-for="cliente in clientes"
                                 :key="cliente.id"
                                 :cliente="cliente"
+                                @actualizar-estado="actualizarEstado"
                             />
                         </tbody>
                     </table>

@@ -2,12 +2,13 @@
   "clientes": [
     {
       "nombre": "Milton Manuel",
-      "apellido": "Sanchez 5",
+      "apellido": "Sanchez ",
       "email": "milton.sanchezrios88@gmail.com",
       "telefono": "3164976263",
       "monto": "60000",
       "destino": "cafe",
-      "id": 1
+      "id": 1,
+      "estado": true
     },
     {
       "nombre": "Milton Manuel",
@@ -16,7 +17,8 @@
       "telefono": "3164976263",
       "monto": "60000",
       "destino": "cafe",
-      "id": 2
+      "id": 2,
+      "estado": true
     },
     {
       "nombre": "Milton Manuel",
@@ -26,16 +28,16 @@
       "monto": "45000",
       "destino": "maiz",
       "id": 3,
-      "estado": 1
+      "estado": true
     },
     {
       "nombre": "Milton Manuel",
       "apellido": "Sanchez Coqueco",
       "email": "milton.sanchezrios88@gmail.com",
       "telefono": "3164976263",
-      "monto": "155000000",
+      "monto": "25000",
       "destino": "cacao",
-      "estado": 1,
+      "estado": true,
       "id": 4
     }
   ]

@@ -51,7 +51,7 @@ const handleSubmit = (data)=>{
         <div class="mx-auto mt-10 bg-white shadow md:w-3/5 p-3 rounded-md">
             <FormKit 
                 type="form"
-                submit-label="Editar Cliente"
+                submit-label="Guardar Cambios"
                 incomplete-message="No se Pudo enviar, Revisar"
                 @submit="handleSubmit"
                 :value="formData"

@@ -13,6 +13,8 @@ import { RouterLink, useRoute } from 'vue-router';
         }
     })
 
+    defineEmits(['actualizar-estado'])
+
     const nombreCompleto = computed(()=>{
         return `${props.cliente.nombre} ${props.cliente.apellido}`
     })
@@ -23,7 +25,7 @@ import { RouterLink, useRoute } from 'vue-router';
 
 </script>
 <template>
-    <tr>
+    <tr class="bg-indigo-200">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0">
             <p class="font-medium text-gray-900">{{ nombreCompleto }}</p>
             <p class="text-gray-500">{{ props.cliente.email }}</p>
@@ -38,7 +40,7 @@ import { RouterLink, useRoute } from 'vue-router';
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
             <RouterLink 
                 :to="{name:'editar-cliente', params:{id: cliente.id}}"
-                class="text-indigo-700 font-bold hover:text-indigo-500"
+                class="text-indigo-700 font-bold hover:text-indigo-500 mr-4"
             >
                 Editar
             </RouterLink>
@@ -52,6 +54,7 @@ import { RouterLink, useRoute } from 'vue-router';
             <button
                 class="p-1 rounded-md"
                 :class="[estadoCliente ? 'bg-green-200 font-semibold text-green-800' : 'bg-red-200 text-red-800']"
+                @click="$emit('actualizar-estado', {id:cliente.id, estado:cliente.estado})"
             >
                 {{ estadoCliente ? 'Aprobado' : 'Negado' }}
             </button>

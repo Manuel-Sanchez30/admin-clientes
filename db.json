@@ -1,3 +1,34 @@
 {
-  "clientes": []
+  "clientes": [
+    {
+      "nombre": "carlos",
+      "apellido": "torrente",
+      "email": "carlos@gmail.com",
+      "telefono": "3174456263",
+      "monto": "5000000",
+      "destino": "cafe",
+      "estado": true,
+      "id": 1
+    },
+    {
+      "nombre": "Fredy",
+      "apellido": "Rios",
+      "email": "fredy@gmail.com",
+      "telefono": "3124789568",
+      "monto": "20000000",
+      "destino": "Siembra Platano",
+      "estado": 1,
+      "id": 2
+    },
+    {
+      "nombre": "Marcela",
+      "apellido": "Montilla",
+      "email": "marcela@gmail.com",
+      "telefono": "3204587484",
+      "monto": "10000000",
+      "destino": "sostenimiento de cafe",
+      "estado": 1,
+      "id": 3
+    }
+  ]
 }

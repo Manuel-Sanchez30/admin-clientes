@@ -1,11 +1,11 @@
 <script setup>
 
 import { onMounted, ref, computed } from "vue";
-
 import RouterLink from '@/components/UI/RouterLink.vue';
 import Header from '../components/UI/Header.vue';
 import Cliente from "@/components/Cliente.vue";
 import clienteServices from "@/services/clienteServices";
+
 
 defineProps({
     titulo:{
@@ -78,10 +78,22 @@ const eliminarCliente = (id)=>{
                                 @actualizar-estado="actualizarEstado"
                                 @eliminar-cliente="eliminarCliente"
                             />
+            
                         </tbody>
+                        <tfoot>
+                            
+                                <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Total</th>
+                                <p class="text-white font-bold">
+                                    sdcs
+                                </p>
+                        </tfoot>
                     </table>
+                    
                 </div>
             </div>
+
+        
+
         </div>
         <p 
             v-else

@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import {formatearMonto} from '../helpers'
 
 
     const route = useRoute();
@@ -23,15 +24,18 @@ import { RouterLink, useRoute } from 'vue-router';
         return props.cliente.estado
     })
 
+    
+
 </script>
 <template>
+    
     <tr class="bg-indigo-200">
         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-0">
             <p class="font-medium text-gray-900">{{ nombreCompleto }}</p>
             <p class="text-gray-500">{{ props.cliente.email }}</p>
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-            <p class="text-gray-900 font-bold">{{ props.cliente.monto }}</p>
+            <p class="text-gray-900 font-bold">{{ formatearMonto(props.cliente.monto) }}</p>
             <p class="text-gray-600">{{ props.cliente.destino }}</p>
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm">
@@ -60,7 +64,13 @@ import { RouterLink, useRoute } from 'vue-router';
                 {{ estadoCliente ? 'Aprobado' : 'Negado' }}
             </button>
         </td>
+
+        
+        
     </tr>
+    
+    
+    
 </template>
 
 
